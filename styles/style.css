@@ -1,45 +1,48 @@
-#index-header {
+header {
   height: 8vh; }
-  #index-header .container-header {
+  header .container-header {
     height: 100%;
     padding: 0 20px; }
-    #index-header .container-header .logo {
+    header .container-header .logo {
       font-size: 1.2rem;
       font-weight: 600;
       color: #0286B6; }
-    #index-header .container-header .help {
+    header .container-header .help {
       font-size: 1rem;
       font-weight: 600; }
 
-#index {
-  height: 92vh;
+main {
+  height: 92vh; }
+
+#homepage {
   background-color: #F3F7F5;
-  display: flex; }
-  #index .card {
+  display: flex;
+  height: 100%; }
+  #homepage .card {
     width: 60%;
     margin: auto;
     border: 4px solid #0286B6; }
-    #index .card .card-body {
+    #homepage .card .card-body {
       text-align: center; }
-      #index .card .card-body .title-card {
+      #homepage .card .card-body .title-card {
         font-size: 2rem;
         font-weight: 600;
         color: #0286B6; }
-      #index .card .card-body .sub-title {
+      #homepage .card .card-body .sub-title {
         font-size: 1.2rem;
         font-weight: 600; }
-      #index .card .card-body .parh-card {
+      #homepage .card .card-body .parh-card {
         margin-top: 20px;
         font-style: italic; }
-      #index .card .card-body .btn {
+      #homepage .card .card-body .btn {
         background-color: #0286B6;
         color: white;
         font-weight: 600;
         display: block;
         margin: 20px auto; }
-        #index .card .card-body .btn a {
+        #homepage .card .card-body .btn a {
           text-decoration: none;
           color: unset; }
 
-#login-page h1 {
+#login h1 {
   color: rebeccapurple; }

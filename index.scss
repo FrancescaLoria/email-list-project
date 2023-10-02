@@ -1,4 +1,4 @@
-#index-header {
+header {
     height: 8vh;
 
     .container-header {
@@ -8,7 +8,7 @@
         .logo {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #0286B6;
+            color: $details-color;
         }
 
         .help {
@@ -18,53 +18,6 @@
     }
 }
 
-
-
-#index {
+main {
     height: 92vh;
-    background-color: #F3F7F5;
-    display: flex;
-
-    .card {
-        width: 60%;
-        margin: auto;
-        border: 4px solid #0286B6;
-
-        .card-body {
-            text-align: center;
-
-                .title-card {
-                    font-size: 2rem;
-                    font-weight: 600;
-                    color: #0286B6
-                }
-
-                .sub-title {
-                    font-size: 1.2rem;
-                    font-weight: 600;
-                }
-
-                .parh-card {
-                    margin-top: 20px;
-                    font-style: italic;
-
-                }
-
-                .btn {
-                    background-color:#0286B6;
-                    color: white;
-                    font-weight: 600;
-                    display: block;
-                    margin: 20px auto;
-
-                    a {
-                        text-decoration: none;
-                        color: unset;
-
-                    }
-                }
-        }
-    }
-
-    
 }

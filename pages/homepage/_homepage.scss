@@ -1,0 +1,46 @@
+#homepage {
+    background-color: $bkg-litghBlue;
+    display: flex;
+    height: 100%;
+
+    .card {
+        width: 60%;
+        margin: auto;
+        border: 4px solid $details-color;
+
+        .card-body {
+            text-align: center;
+
+                .title-card {
+                    font-size: 2rem;
+                    font-weight: 600;
+                    color: $details-color;
+                }
+
+                .sub-title {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+
+                .parh-card {
+                    margin-top: 20px;
+                    font-style: italic;
+
+                }
+
+                .btn {
+                    background-color:$details-color;
+                    color: white;
+                    font-weight: 600;
+                    display: block;
+                    margin: 20px auto;
+
+                    a {
+                        text-decoration: none;
+                        color: unset;
+
+                    }
+                }
+        }
+    }
+}

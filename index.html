@@ -10,34 +10,56 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <title>HOME PAGE</title>
+
+    <script>
+        const routes = [
+            {
+                url: "login",
+                filePath: "pages/login/login.html",
+                pageTitle: "Login"
+            },
+            {
+                url: "sign-in",
+                filePath: "pages/login/login.html",
+                pageTitle : "Sign in"
+            },
+        ]
+
+        const changeRoute = (url) => {
+            const main = document.querySelector("main")
+            
+            window.history.pushState({}, "", url);
+            
+            const findedRoute = routes.find((route) => url === route.url)
+
+            document.title = findedRoute.pageTitle
+            loadPage(main, findedRoute.filePath)
+        }
+
+        const loadPage = (htmlElement, path) => {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+                htmlElement.innerHTML = xhr.responseXML.body.innerHTML
+            };
+            xhr.open("GET", path);
+            xhr.responseType = "document";
+            xhr.send();
+        }
+
+        addEventListener("DOMContentLoaded", (event) => {
+            document.title = "Homepage"
+            const headerElement = document.querySelector("header")
+            const main = document.querySelector("main")
+
+            loadPage(headerElement, "partials/header.html");
+            loadPage(main, "pages/homepage/homepage.html")
+        });
+        
+    </script>
 </head>
 <body>
-    <header id="index-header">
-        <div class="container-header d-flex justify-content-between align-items-center">
-            <div class="logo">emailPIU'</div>
-            <div class="help">AIUTO</div>
-        </div>
+    <header></header>
 
-    </header>
-    <main id="index">
-        <div class="card">
-            <div class="card-body">
-                <div class="title-card">emailPIU'</div>
-                <div class="sub-title">Con emailPIU' le cose più importanti sono a portata di mano.</div>
-                <p class="parh-card">
-                    Il servizio emailPIU' migliore di sempre, le ultime notizie locali, nazionali e mondiali, finanza, sport, musica, film e molto altro. A volte il Web può migliorarti la vita.
-                </p>
-                <button type="button" class="btn">
-                    <a href="file:///C:/Boolean/projects/email-list-project/login-page/login-page.html">ACCEDI</a>
-                </button>
-                <span>
-                    non sei ancora iscritto? Che aspetti
-                    <a href="#">Registrati.</a>
-                </span>
-            </div>
-          </div>
-        
-    </main>
+    <main></main>
 </body>
 </html>

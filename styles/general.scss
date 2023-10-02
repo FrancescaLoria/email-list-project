@@ -1,5 +1,12 @@
+// variabili di colori 
+$bkg-litghBlue:#F3F7F5; 
+$details-color:#0286B6;
+
+
+
 // STYLE HOME PAGE
 @import "../index.scss";
+@import "../pages/homepage/homepage.scss";
 
 // STYLE LOGIN
-@import "login-page/style.scss";
+@import "../pages/login/login.scss"

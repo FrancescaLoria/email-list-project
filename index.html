@@ -14,8 +14,14 @@
     <script>
         const routes = [
             {
+                url: "/",
+                filePath: "pages/homepage/homepage.html",
+                pageTitle: "Homepage"
+            },
+            {
                 url: "login",
                 filePath: "pages/login/login.html",
+                scriptPath: "pages/login/script.js",
                 pageTitle: "Login"
             },
             {
@@ -25,35 +31,49 @@
             },
         ]
 
-        const changeRoute = (url) => {
-            const main = document.querySelector("main")
-            
-            window.history.pushState({}, "", url);
-            
-            const findedRoute = routes.find((route) => url === route.url)
+        const changeRoute = async () => {
+            let location = window.location.hash.replace("#", ""); // e.g. #login -> login
 
-            document.title = findedRoute.pageTitle
-            loadPage(main, findedRoute.filePath)
+            if (location.length == 0) {
+                location = "/";
+            }
+
+            const route = routes.find((element)=>element.url === location)
+
+            const main = document.querySelector("main")
+
+            document.title = route.pageTitle
+            await loadPage(main, route.filePath)
+            
+            if(route.scriptPath){
+                const scriptElemet = document.createElement('script');
+                scriptElemet.setAttribute('src', route.scriptPath );
+                document.body.appendChild(scriptElemet);
+            }
         }
 
         const loadPage = (htmlElement, path) => {
-            const xhr = new XMLHttpRequest();
-            xhr.onload = () => {
-                htmlElement.innerHTML = xhr.responseXML.body.innerHTML
-            };
-            xhr.open("GET", path);
-            xhr.responseType = "document";
-            xhr.send();
+            return new Promise((resolve, reject)=>{
+                const xhr = new XMLHttpRequest();
+                xhr.onload = () => {
+                    htmlElement.innerHTML = xhr.responseXML.body.innerHTML
+                    resolve(true)
+                };
+                xhr.open("GET", path);
+                xhr.responseType = "document";
+                xhr.send();
+            })
+            
         }
 
         addEventListener("DOMContentLoaded", (event) => {
-            document.title = "Homepage"
             const headerElement = document.querySelector("header")
-            const main = document.querySelector("main")
-
             loadPage(headerElement, "partials/header.html");
-            loadPage(main, "pages/homepage/homepage.html")
+
+            changeRoute()
         });
+
+        window.addEventListener("hashchange", changeRoute);
         
     </script>
 </head>

@@ -1,6 +1,13 @@
 #login {
-    h1 {
-        color: rebeccapurple;
-        
+    background-color: $bkg-litghBlue;
+    display: flex;
+    height: 100%;
+
+    .card {
+        width: 80%;
+        margin: auto;
+        border: 4px solid $details-color;
+        border-radius: 20px;
+        overflow: hidden;
     }
 }
